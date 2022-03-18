@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class LeafsDestroy : MonoBehaviour
 {
+    public float postionDestroy;
     void Update()
     {
-        if (transform.position.x < -11)
+        
+        if (transform.position.x < postionDestroy)
             Destroy(gameObject);
     }
 }
