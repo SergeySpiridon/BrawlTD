@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4803918560795829981
+--- !u!1 &5996994734799006851
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4803918560795829968}
-  - component: {fileID: 4803918560795829983}
-  - component: {fileID: 4803918560795829982}
-  - component: {fileID: 4803918560795829969}
-  - component: {fileID: 855428968}
-  - component: {fileID: 855428969}
-  - component: {fileID: 621088150859380509}
-  m_Layer: 7
-  m_Name: Ork
+  - component: {fileID: 5996994734799006862}
+  - component: {fileID: 5996994734799006849}
+  - component: {fileID: 5996994734799006848}
+  - component: {fileID: 5996994734799006863}
+  - component: {fileID: 1266470865211344182}
+  - component: {fileID: 1266470865211344183}
+  - component: {fileID: 3598208099870894938}
+  m_Layer: 6
+  m_Name: OrkEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4803918560795829968
+--- !u!4 &5996994734799006862
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4803918560795829981}
+  m_GameObject: {fileID: 5996994734799006851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.75, y: -5.75, z: 0}
+  m_LocalPosition: {x: 8.23, y: -5.12, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4803918560795829983
+--- !u!212 &5996994734799006849
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4803918560795829981}
+  m_GameObject: {fileID: 5996994734799006851}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 02ff8174bdb501e47842d22c77dc2ec6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 3.53, y: 3.64}
@@ -87,14 +87,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4803918560795829982
+--- !u!95 &5996994734799006848
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4803918560795829981}
+  m_GameObject: {fileID: 5996994734799006851}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ef194b0391cb67449b95e2ea34fc31d5, type: 2}
@@ -106,61 +106,61 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4803918560795829969
+--- !u!114 &5996994734799006863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4803918560795829981}
+  m_GameObject: {fileID: 5996994734799006851}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef29200bbd39bf4788e27e6d46dca42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 3
-  dir: {x: 1, y: 0}
---- !u!114 &855428968
+  dir: {x: -1, y: 0}
+--- !u!114 &1266470865211344182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4803918560795829981}
+  m_GameObject: {fileID: 5996994734799006851}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34cdbebf252292d4581812ae6e55d182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameobj: {fileID: 0}
-  animator: {fileID: 4803918560795829982}
---- !u!114 &855428969
+  animator: {fileID: 5996994734799006848}
+--- !u!114 &1266470865211344183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4803918560795829981}
+  m_GameObject: {fileID: 5996994734799006851}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92bc9ba91c7e070458dcb0ab7539fcf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 4803918560795829982}
---- !u!114 &621088150859380509
+  animator: {fileID: 5996994734799006848}
+--- !u!114 &3598208099870894938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4803918560795829981}
+  m_GameObject: {fileID: 5996994734799006851}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b6b43663c1f897478870bcf3d3b5e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  Health: 20
   Damage: 10
   Range: 10
   SpeedAttack: 0.9
-  Cost: 50
+  Cost: 100
