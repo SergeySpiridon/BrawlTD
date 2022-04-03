@@ -8,13 +8,7 @@ public class UnitAminmations : MonoBehaviour
     [SerializeField]public Animator animator;
     public void PlayAnimationAttack(bool distanceCheck, float Speed)
     {
-
-        //if (!distanceCheck)
-        //    animator.speed *= Speed;
-        //else
-        //    animator.speed = 1.4f;
         animator.SetBool("OrkWalk", distanceCheck);
-   //     unitEventManager.AnimationAttack();
     }
     public void PlayAnimationDeath(float health)
     {
