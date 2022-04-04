@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class UnitAminmations : MonoBehaviour
 {
-    UnitEventManager unitEventManager;
+   // UnitEventManager unitEventManager;
     [SerializeField]public Animator animator;
-    public void PlayAnimationAttack(bool distanceCheck)
+    public void PlayAnimationAttack(bool distanceCheck, float Speed)
     {
-        if(distanceCheck)
-        Debug.Log(distanceCheck);
         animator.SetBool("OrkWalk", distanceCheck);
-   //     unitEventManager.AnimationAttack();
+    }
+    public void PlayAnimationDeath(float health)
+    {
+        animator.SetFloat("Die", health);
     }
 }
