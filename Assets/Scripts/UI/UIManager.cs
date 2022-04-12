@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public Text textTime;
-    public static float timeBattle = 90;
-    public static float timeCasino = 20;
+    public static float timeBattle = 10;
+    public static float timeCasino = 10;
     public float timeSaveBattle;
     public float timeSaveCasino;
     public int minute;
@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public static bool flag { get; private set; }
     public static bool flagCourutine { get; private set; }
 
+    [SerializeField] AnimationBuyZone animationBuyZone;
     private enum Condition : int
     {
         flagTextTimeBattle,
@@ -47,6 +48,11 @@ public class UIManager : MonoBehaviour
                 textTime.text = timeBattle.ToString();
             }
             timeBattle--;
+            if(timeBattle < 2)
+            {
+                animationBuyZone.GetComponent<AnimationBuyZone>().PlayAnimatorZone(false);
+            }
+               
 
             if (timeBattle <= 0 && !flagCourutine)
             {
@@ -62,8 +68,11 @@ public class UIManager : MonoBehaviour
     public IEnumerator TextTimeWait()
     {
         yield return new WaitForSeconds(2f);
+        animationBuyZone.GetComponent<AnimationBuyZone>().StartAniatorBuyZone(true);
         if (!flag)
         {
+            //   animationBuyZone.GetComponent<AnimationBuyZone>().PlayAnimatorZone(false);
+            EventManager.KillOurUnits();
             flag = true;
             timeCasino = timeSaveCasino;
             StartCoroutine(TextTimeCasino());
@@ -71,14 +80,13 @@ public class UIManager : MonoBehaviour
         }
         else if(flag)
         {
-            Debug.Log("Battle");
+            animationBuyZone.GetComponent<AnimationBuyZone>().PlayAnimatorZone(true);
             flag = false;
             timeBattle = timeSaveBattle;
             StartCoroutine(TextTimeBattle());
             
         }
         flagCourutine = false;
-        Debug.Log(flag);
     }
     public IEnumerator TextTimeCasino()
     {

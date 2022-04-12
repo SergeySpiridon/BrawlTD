@@ -5,20 +5,40 @@ using UnityEngine.UI;
 
 public class MoneyChange : MonoBehaviour
 {
-  //  UnitSkills cost;
+    //  UnitSkills cost;
+    public Animator anim;
     private Text text;
     private float Money = 100;
+    public static float moneyRound;
     public void Start()
     {
+        moneyRound = Money;
         text = GetComponent<Text>();
-        EventManager.KillEnemy += ChangeMoney;
+        EventManager.KillEnemy += MoneyForKill;
+        EventManager.BuyUnit += MoneyForBuyUnit;
         text.text = Money.ToString();
+    }
+    public void MoneyForKill()
+    {
+        anim.SetBool("Trigger", true);
+        Money += Unit—haracteristic.costEnemy * 2;
+        moneyRound = Mathf.Round(Money);
+        ChangeMoney();
+    }
+    public void MoneyForBuyUnit(float costUnit)
+    {
+        Money -= costUnit;
+        moneyRound = Mathf.Round(Money);
+        ChangeMoney();
+
     }
     public void ChangeMoney()
     {
-        Money += UnitSkills.costEnemy * 2;
-        float MoneyRound = Mathf.Round(Money);
-        Debug.Log(Money); 
-        text.text = MoneyRound.ToString();
+        text.text = moneyRound.ToString();
+
+    }
+    public void SetFlagFalse()
+    {
+        anim.SetBool("Trigger", false);
     }
 }
