@@ -8,9 +8,12 @@ public class ChangeTime : MonoBehaviour
     public Transform Rotate;
     public Animator up;
     public GameObject casinoWindow;
-    private float speedTimeBattle = 360 / UIManager.timeBattle * 7f;
-    private float speedTimeCasino = 360/ UIManager.timeCasino * 7f;
+    private float speedTimeBattle = 360 / UIManager.timeBattle * 4f;
+    private float speedTimeCasino = 360/ UIManager.timeCasino * 4f;
     private float x;
+    private bool flagCas1;
+    [SerializeField] private ButtonCas1 buttonCas1;
+ //   ButtonCas1 buttonCas1 = new ButtonCas1();
 
     private void Start()
     {
@@ -28,6 +31,12 @@ public class ChangeTime : MonoBehaviour
     {
         if (UIManager.timeBattle < 0 && UIManager.timeCasino > 0)
         {
+            if(!flagCas1)
+            {
+                //Тут мне нужно вызвать метод из класса кнопочки
+                buttonCas1.GetComponent<ButtonCas1>().RandomBoost();
+                flagCas1 = true;
+            }
             casinoWindow.SetActive(true);
             if (UIManager.timeCasino < 3)
                 up.SetBool("NightStart", true);
@@ -35,6 +44,7 @@ public class ChangeTime : MonoBehaviour
         else
         {
             casinoWindow.SetActive(false);
+            flagCas1 = false;
         }
     }
 
