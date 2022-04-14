@@ -148,8 +148,9 @@ MonoBehaviour:
   Unit: {fileID: 5996994734799006851}
   UnitEnemy: {fileID: 4803918560795829981, guid: d385eece09d1d934193ed8a7082b3918, type: 3}
   collUnit: {fileID: 0}
-  anim: {fileID: 0}
-  Health: 200
+  anim: {fileID: 5996994734799006848}
+  CrystalEnemy: {fileID: 8115283603809418259, guid: d506cc5336570d645a39017defab0dc6, type: 3}
+  Health: 100
   Damage: 10
   Range: 10
   SpeedAttack: 0.9

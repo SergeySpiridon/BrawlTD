@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public Text textTime;
-    public static float timeBattle = 10;
-    public static float timeCasino = 10;
+    public static float timeBattle = 30;
+    public static float timeCasino = 20;
     public float timeSaveBattle;
     public float timeSaveCasino;
     public int minute;
@@ -29,7 +29,13 @@ public class UIManager : MonoBehaviour
         timeSaveCasino = timeCasino;
         flag = true;
         flagCourutine = false;
-        StartCoroutine(TextTimeWait());
+        StartCoroutine(StartBattle());
+    }
+
+    private IEnumerator StartBattle()
+    {
+        yield return new WaitForSeconds(2f);
+        TextTimeWait();
     }
 
     public IEnumerator TextTimeBattle()
@@ -48,26 +54,41 @@ public class UIManager : MonoBehaviour
                 textTime.text = timeBattle.ToString();
             }
             timeBattle--;
-            if(timeBattle < 2)
-            {
-                animationBuyZone.GetComponent<AnimationBuyZone>().PlayAnimatorZone(false);
-            }
-               
 
-            if (timeBattle <= 0 && !flagCourutine)
+            if (timeBattle <= 0)
+                animationBuyZone.GetComponent<AnimationBuyZone>().PlayAnimatorZone(false);
+
+            if (timeBattle <= -2 && !flagCourutine)
             {
-                StopCoroutine(TextTimeBattle());
-                StartCoroutine(TextTimeWait());
+
                 flagCourutine = true;
+                TextTimeWait();
             }
-                
+
             yield return new WaitForSeconds(1f);
         }
     }
 
-    public IEnumerator TextTimeWait()
+
+    public IEnumerator TextTimeCasino()
     {
-        yield return new WaitForSeconds(2f);
+        while (flag)
+        {
+            textTime.color = Color.blue;
+            textTime.text = timeCasino.ToString();
+            timeCasino--;
+            if (timeCasino <= -2 && !flagCourutine)
+            {
+                flagCourutine = true;
+                TextTimeWait();
+            }
+            yield return new WaitForSeconds(1f);
+
+        }
+    }
+
+    public void TextTimeWait()
+    {
         animationBuyZone.GetComponent<AnimationBuyZone>().StartAniatorBuyZone(true);
         if (!flag)
         {
@@ -76,34 +97,18 @@ public class UIManager : MonoBehaviour
             flag = true;
             timeCasino = timeSaveCasino;
             StartCoroutine(TextTimeCasino());
-            
+
         }
-        else if(flag)
+        else if (flag)
         {
             animationBuyZone.GetComponent<AnimationBuyZone>().PlayAnimatorZone(true);
             flag = false;
             timeBattle = timeSaveBattle;
             StartCoroutine(TextTimeBattle());
-            
+
         }
         flagCourutine = false;
     }
-    public IEnumerator TextTimeCasino()
-    {
-        while (flag)
-        {
-            textTime.color = Color.blue;
-            textTime.text = timeCasino.ToString();
-            timeCasino--;
-            if(timeCasino <= 0 && !flagCourutine)
-            {
-                flagCourutine = true;
-                StopCoroutine(TextTimeCasino());
-                StartCoroutine(TextTimeWait());
-            }
-            yield return new WaitForSeconds(1f);
-
-        }
-    }
 
 }
+
