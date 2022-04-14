@@ -136,6 +136,8 @@ MonoBehaviour:
   UnitEnemy: {fileID: 5996994734799006851, guid: fa9484c8734420b4c80dc2773973c853, type: 3}
   collUnit: {fileID: 0}
   anim: {fileID: 4803918560795829982}
+  CrystalEnemy: {fileID: 5032131981736014893, guid: 4ed5a8a84cbcf0540a76367a45112f51, type: 3}
+  hpbar: {fileID: 573197906256974843, guid: 4ed5a8a84cbcf0540a76367a45112f51, type: 3}
   Health: 50
   Damage: 10
   Range: 10

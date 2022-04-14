@@ -29,7 +29,7 @@ public class ChangeTime : MonoBehaviour
     //
     private void CasinoOpen()
     {
-        if (UIManager.timeBattle < 0 && UIManager.timeCasino > 0)
+        if (UIManager.timeBattle < 0 && UIManager.timeCasino >= -2)
         {
             if(!flagCas1)
             {
@@ -38,11 +38,17 @@ public class ChangeTime : MonoBehaviour
                 flagCas1 = true;
             }
             casinoWindow.SetActive(true);
-            if (UIManager.timeCasino < 3)
+            //Debug.Log(UIManager.timeCasino);
+            //КАСТЫЛЬ, НО Я НЕ ХОЧУ ВСЕ ПЕРЕДЕЛЫВАТЬ
+            //тут нужно будет поставить счетчик раундов
+            
+            if (UIManager.timeCasino <= 1 && UIManager.timeCasino > -2)
+                
                 up.SetBool("NightStart", true);
         }
         else
         {
+            //Включается и выключается канвас казиныча
             casinoWindow.SetActive(false);
             flagCas1 = false;
         }
